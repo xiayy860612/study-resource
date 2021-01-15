@@ -1,0 +1,14 @@
+@startuml ""
+interface PropertyEditor
+class PropertyEditorSupport implements PropertyEditor
+
+interface PropertyEditorRegistrar
+interface PropertyEditorRegistry
+PropertyEditorRegistrar --> PropertyEditorRegistry: register editor to registry
+
+class PropertyEditorRegistrySupport implements PropertyEditorRegistry
+PropertyEditorRegistry "1" *--> "0..*" PropertyEditor
+
+class BeanWrapperImpl extends PropertyEditorRegistrySupport implements BeanWrapper
+
+@enduml

@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>data-bind</module>
+        <module>conversion</module>
     </modules>
 
     <properties>

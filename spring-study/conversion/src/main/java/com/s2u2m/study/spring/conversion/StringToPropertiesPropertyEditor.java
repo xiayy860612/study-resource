@@ -1,4 +1,4 @@
-package com.s2u2m.study.spring.data.bind;
+package com.s2u2m.study.spring.conversion;
 
 import java.beans.PropertyEditorSupport;
 import java.io.IOException;
