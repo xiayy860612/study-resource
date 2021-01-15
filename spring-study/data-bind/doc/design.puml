@@ -1,0 +1,21 @@
+@startuml ""
+
+interface PropertyValues
+class MutablePropertyValues implements PropertyValues
+class ServletRequestParameterPropertyValues extends MutablePropertyValues
+
+class DataBinder
+DataBinder --> PropertyValues: use for binding
+
+interface BindingResult
+class BeanPropertyBindingResult implements BindingResult
+DataBinder *--> "1" BindingResult: contains error info
+
+interface BeanWrapper
+class BeanWrapperImpl implements BeanWrapper
+BeanPropertyBindingResult *--> "1" BeanWrapper
+
+DataBinder ..> BeanWrapper: bind PropertyValues to target
+BeanWrapper ..> MutablePropertyValues: use
+
+@enduml
