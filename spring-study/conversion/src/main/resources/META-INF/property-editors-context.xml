@@ -11,7 +11,15 @@
         http://www.springframework.org/schema/util
         https://www.springframework.org/schema/util/spring-util.xsd">
 
-    <bean class="com.s2u2m.study.spring.conversion.CustomPropertyEditorRegistrar"/>
+    <!-- PropertyEditor for convert   -->
+<!--    <bean class="com.s2u2m.study.spring.conversion.propertyeditor.CustomPropertyEditorRegistrar"/>-->
+
+    <!-- ConversionService for convert  -->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <bean class="com.s2u2m.study.spring.conversion.conversionservice.StringToPropertiesConverter" />
+        </property>
+    </bean>
 
     <bean id="user" class="com.s2u2m.study.spring.conversion.User">
         <property name="age" value="18"/>

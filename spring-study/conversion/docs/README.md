@@ -19,4 +19,28 @@ Spring的内建扩展都在org.springframework.beans.propertyeditors包下.
 Spring通过PropertyEditorRegistrar将PropertyEditor注册到PropertyEditorRegistry中, 
 这些PropertyEditor都会在BeanWrapper中使用.
 
+## Spring 3.0+加入的通用类型转换
+
+实现Converter的接口:
+- org.springframework.core.convert.converter.Converter<S, T>, 针对单一类型的转化
+- org.springframework.core.convert.converter.ConverterFactory, 获取Converter
+- org.springframework.core.convert.converter.GenericConverter, 
+针对复合类型的转化, 比如Collection, Map, 数组之类
+- org.springframework.core.convert.converter.ConditionalGenericConverter
+
+![](GenericConverter.jpg)
+
+注册转换器:
+- org.springframework.core.convert.ConversionService, 管理所有注册的Converter以及GenericConverter
+- org.springframework.context.support.ConversionServiceFactoryBean
+
+注册转换器的名字必须为**conversionService**, ApplicationContext启动时BeanFactory会加载它, 
+并将它传递给BeanWrapperImpl.
+
+![](ConversionServiceImpl.jpg)
+
+类型转换器底层接口:
+- org.springframework.beans.TypeConverter
+- org.springframework.beans.TypeConverterSupport, 扩展了PropertyEditorSupport
+- org.springframework.beans.TypeConverterDelegate
 

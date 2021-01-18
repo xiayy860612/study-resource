@@ -1,7 +1,9 @@
-package com.s2u2m.study.spring.conversion;
+package com.s2u2m.study.spring.conversion.propertyeditor;
 
 import org.springframework.beans.PropertyEditorRegistrar;
 import org.springframework.beans.PropertyEditorRegistry;
+
+import com.s2u2m.study.spring.conversion.User;
 
 public class CustomPropertyEditorRegistrar implements PropertyEditorRegistrar {
     @Override

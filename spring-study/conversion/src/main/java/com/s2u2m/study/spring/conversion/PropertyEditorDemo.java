@@ -3,6 +3,8 @@ package com.s2u2m.study.spring.conversion;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.s2u2m.study.spring.conversion.User;
+
 public class PropertyEditorDemo {
     public static void main(String[] args) {
         ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(
