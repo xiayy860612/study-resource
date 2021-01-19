@@ -1,0 +1,33 @@
+@startuml ""
+
+frame PropertyEditorFrame {
+interface PropertyEditor
+class PropertyEditorSupport implements PropertyEditor
+
+interface PropertyEditorRegistrar
+interface PropertyEditorRegistry
+PropertyEditorRegistrar --> PropertyEditorRegistry: register editor to registry
+}
+
+frame ConversionServiceFrame {
+interface Converter<S, T>
+
+interface ConditionalConverter
+interface GenericConverter
+interface ConditionalGenericConverter extends GenericConverter, ConditionalConverter
+
+interface ConversionService
+ConversionService "1" *--> "*" Converter
+ConversionService "1" *--> "*" GenericConverter
+}
+
+class PropertyEditorRegistrySupport implements PropertyEditorRegistry
+PropertyEditorRegistry "1" *--> "0..*" PropertyEditor
+PropertyEditorRegistrySupport "1" o--> "0..1" ConversionService
+
+interface TypeConverter
+abstract class TypeConverterSupport extends PropertyEditorRegistrySupport implements TypeConverter
+
+class BeanWrapperImpl extends TypeConverterSupport implements BeanWrapper
+
+@enduml
