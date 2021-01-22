@@ -12,6 +12,7 @@
         <module>1-collection</module>
         <module>2-tree</module>
         <module>3-recursion</module>
+        <module>sort</module>
     </modules>
 
     <properties>
