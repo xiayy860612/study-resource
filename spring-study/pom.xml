@@ -11,6 +11,7 @@
     <modules>
         <module>data-bind</module>
         <module>conversion</module>
+        <module>annotation</module>
     </modules>
 
     <properties>
